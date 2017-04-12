@@ -1,0 +1,334 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%;
+	font-family: "微软雅黑",'Luxi Sans','DejaVu Sans',Tahoma,'Hiragino Sans GB',STHeiti;
+}
+.clearfix:after {
+	display: block;
+	content: '';
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+/*滚动条*/
+.scrollbar{
+	width: 12px;
+	height: inherit;
+	background: rgba(255,255,255,.3);
+	position: fixed;
+	right: 0;
+}
+.slider{
+	width: 12px;
+	height: 75%;
+	background: rgba(255,255,255,.4);
+	position: absolute;
+}
+
+.out_Wrap {
+	width: 100%;
+	height: 100%;
+	background-image:url(../images/background/10.jpg);
+	background-size: cover;
+
+	/*display: none;*/
+}
+
+.hte-quickbar-show {
+	width: 36px;
+	height: 90px;
+	position: fixed;
+	top: 42%;
+	left: 0;
+	background-color: #9b1dab;
+	cursor: pointer;
+	z-index:9;
+	transition: all .3s;
+}
+.hte-quickbar-show img{
+	position: absolute;
+	top: 32px;
+	left: 5px;
+	transition: 0.5s;
+}
+.hte-quickbar-show:hover{
+	background-color: rgba(155,29,171,0.8);
+}
+.hte-quickbar-show:hover img{
+	transform: rotate(-360deg);
+}
+
+.hte-quickbar{
+	width: 80px;
+	height: 100%;
+	background-color: #9b1dab;
+	z-index: 99;
+	position: fixed;
+	left: -80px;
+	top: 0;
+	transition: all .3s;
+}
+.hte-quickbar-header{
+	height: 56px;
+	border-bottom:1px #ccc solid ;
+	position: relative;
+}
+.hte-quickbar-header img{
+	position: absolute;
+	left: 27px;
+	top: 15px;
+	transition: 0.5s;
+	cursor: pointer;
+}
+.hte-quickbar-header img:hover{
+	transform: rotate(-180deg);
+}
+
+.hte-quickbar-body{
+	width: 60px;
+	height: 180px;
+	margin: 10px auto 0;
+}
+.hte-quickbar1{
+	display: block;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	position: relative;
+    -webkit-user-select: none;
+}
+.hte-quickbar1 img{
+	width: 36px;
+	height: 36px;
+	position: absolute;
+	left: 12px;
+	top: 12px;
+
+}
+.hte-quickbar1:hover{background-color: rgba(0,0,0,0.3);
+}
+.hte-taskbar{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 35px;
+	z-index: 100;
+	transition: all .25s;
+	background-color: rgba(155,29,171,0.8);
+	overflow: hidden;
+}
+.hte-taskbar-action-left{
+	width:120px;
+	height: 100%;
+	float: left;
+}
+
+.hte-taskbar-action{
+	float: left;
+	width: 36px;
+	height: 100%;
+	cursor: pointer;
+	background-repeat:no-repeat ;
+	background-position: 10px 10px;
+}
+.hte-taskbar-action:hover{background-color: rgba(255,255,255,0.1);
+	
+}
+.hte-taskbar-inner{
+	float: left;
+	width: auto;
+	height: 100%;
+	position: absolute;
+	left:120px ;
+	right: 278px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.hte-task-bottom{
+	width: 160px;
+	margin: 0 2px 2px;
+	border-bottom: 2.5px solid rgba(255,255,255,0.6);
+	height: 35px;
+	color: white;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+}
+.hte-task-bottom:hover{
+	background-color:rgba(31,91,183,0.5) ;
+	cursor: pointer;
+}
+.hte-task-icon{
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	width: 20px;
+	height: 20px;
+}
+.hte-task-name{
+	font-size:12px;
+	width: 100%;
+	height: 100%;
+	line-height:37px;
+	padding-left: 35px;
+}
+.hte-task-active{
+	background-color: rgba(31,91,183,0.8);
+}
+.hte-taskbar-action-right{
+	float: right;
+	height: 100%;
+}
+.hte-taskbar-action-time{
+	width: 57px;
+	text-align: center;
+	line-height: 35px;
+	color: #fff;
+}
+.hte-task-contextmenu{
+	background-color:white;
+	padding:5px 0;
+	z-index: 999;
+	width: 158px;
+	position: absolute;
+	border: 1px solid rgba(0,0,0,.15);
+	display: none;
+}
+.hte-task-contextmenu > li{
+	font-size: 13px;
+	position: relative;
+	
+}
+.hte-task-contextmenu > li a:hover{
+	background-color: #1f5bb7;
+	color: white;
+}
+.hte-task-contextmenu > li>a{
+	padding: 4px 30px 4px 20px;
+	color: black;
+	font-size: 13px;
+	display: block;
+	white-space: nowrap;
+	
+}
+.hte-task-contextmenu > li>a span{
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+} 
+.hte-task-contextmenu .divider{
+	margin: 4px 0px;
+	height: 1px;
+	background-color: #e5e5e5;
+	overflow: hidden;
+}
+.outBox-icon{
+	overflow-y:hidden;
+	position: relative;
+	width: 100%;
+	height: 94.71%;
+}
+.auto{
+	
+}
+.hte-shortcut{
+	position: absolute;
+	width: 72px;
+	height: 72px;
+	color: white;
+	cursor:pointer;
+	transition-duration:.2s;
+	transition-property:transform,left,top;
+	
+}
+.cjmessager{
+	display:none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color:rgba(0,0,0,.3);z-index: 9999;transition:all .3s;	
+}
+.cjmessagercontent{background-color: #366d19;box-sizing:border-box;position: absolute;top:50%;left:50%;padding: 30px 10px;transform:translate(-50%,-50%);color: white;box-shadow: 0px 0px 8px rgba(0,0,0,0.3);}
+.cjmessagercontent h2{margin:20px 0 10px;font-size: 30px;font-weight: 100;}
+.cjmessagercontent p{font-size: 14px;margin: 24px 0 18px;}
+.cjmessagercontent input,.cjmessagercontent textarea{padding: 6px 12px;display: block;box-sizing:border-box;margin-bottom: 5px;width: 100%;}
+.cjmessagercontent textarea{height: 114px;}
+.cjmessagercontent button{padding: 6px 27px;float: right;margin-top: 30px;margin-left:10px;border: 1px solid transparent;background-color: #fff;cursor:pointer;font-size:14px;font-family:"微软雅黑",'Luxi Sans','DejaVu Sans',Tahoma,'Hiragino Sans GB',STHeiti;outline: none;
+ }
+  .cjmessagerabout ul{margin-left: 37px;width: 100%;}/*...........///////.*/
+ .cjmessagerabout ul li{list-style-type:disc; }
+
+#contextmenu{position: absolute;}
+ul{width: 160px;}
+#contextmenu ul{
+	position: absolute;
+	top: -6px;
+	left: 158px;
+}
+
+.loading{background-color: #544a4a;width: 100%;height: 100%;display: none;}
+.loadingmiddle{position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin:auto;font-size:25px;text-indent:50px;width: 343px;height: 193px;line-height: 38px;color: white;background-image: url(../images/logo.png);background-repeat: no-repeat;background-size: 30px 30px;}
+.loadingmiddle span{font-family: Segoe Script;display: initial;}
+.loadingmiddle p{margin-top:30px;font-size: 14px;text-align: center;background-image: url(../images/preloader.gif);background-size:30px 30px;background-position:100px 0;background-repeat: no-repeat;}
+.hte-shortcut-copy{
+	position: absolute;
+	width: 72px;
+	height: 72px;
+	color: white;
+	cursor: pointer;
+}
+.hte-shortcut img, .hte-shortcut-copy img{
+	width:36px;
+	height: 36px;
+	position: absolute;
+	top:12px;
+	left: 18px;
+}
+.hte-shortcut p.hte-shortcut-name, .hte-shortcut-copy p.hte-shortcut-name {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: center;
+	text-overflow:ellipsis;
+	width: 100%;
+}
+
+
+ /*响应式设置*/
+@media (min-width: 768px){
+	.cjmessagercontent{width: 700px;padding-left: 60px;padding-right: 60px;}
+	// .cjmessagercontent input{width: 300px;}
+}
+ @media all and(max-width:600px){
+
+ 	.outWrap{
+ 		display: none;
+ 	}
+ }
+ 
+@media all and (max-width:1024px) and (min-width:680px)
+{	
+	.slider{height:330px;}
+	
+}
+@media all and (max-width:680px) and (min-width:340px)
+{	
+	.slider{height:180px;}
+}

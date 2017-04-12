@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head id='myHead'>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" charset="utf-8">
+	<title>HteOS个性Web桌面</title>
+	<script type="text/javascript" src='js/public.js'></script>
+	<script type="text/javascript" src='js/lgcCss.js' data-name='lgcJS'></script>
+	<script type="text/javascript" src='js/lgcHTML.js' data-name='lgcJS'></script>
+	<script type="text/javascript" src='js/lgcJS.js' data-name='lgcJS'></script>
+	<script type="text/javascript" src='js/dkHTML.js' data-name='dkJS'></script>
+	<style type='text/css'>
+		body,html{width:100%;height:100%;margin:0;padding:0;}
+		#loading{background-color:#9b1dab;;width: 100%;height: 100%;display: block;position:relative;z-index:1000000;}
+		.loadingmiddle{position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin:auto;font-size:25px;text-indent:50px;width: 343px;height: 193px;line-height: 38px;color: white;background-image: url(./images/logo.png);background-repeat: no-repeat;background-size: 30px 30px;}
+		.loadingmiddle span{font-family: Segoe Script;display: initial;}
+		.loadingmiddle p{margin-top:30px;font-size: 14px;text-align: center;background-image: url(./images/preloader.gif);background-size:30px 30px;background-position:100px 0;background-repeat: no-repeat;}
+	</style>
+</head>
+<body id='myBody' style='overflow:hidden;'>
+	
+	
+
+</body>
+<script type="text/javascript">
+		
+
+		var myHead = document.getElementById('myHead');
+		var myBody = document.getElementById('myBody');
+
+		myBody.innerHTML = lgcHTML;
+		
+		for(var i=0;i<myCss.length;i++)
+		{
+			var link = document.createElement('link');
+			link.setAttribute('rel','stylesheet');
+			link.setAttribute('type','text/css');
+			link.setAttribute('href',myCss[i]);
+
+			myHead.appendChild(link);
+		}
+
+
+		for(var i=0;i<arrLgcJs.length;i++)
+		{
+			var script = document.createElement('script');
+			script.setAttribute('type','text/javascript');
+			script.setAttribute('src',arrLgcJs[i].src);
+			script.innerHTML = arrLgcJs[i].content;
+			myBody.appendChild(script);
+		}
+
+		var color = colorLoadingArr[Math.ceil(Math.random()*colorLoadingArr.length)];
+		var loading = document.getElementById('loading');
+		loading.style.backgroundColor = color;
+
+		windOnload(loadIcon);
+		function loadIcon()
+		{
+			iconDesktop.init();
+			Folder.init();
+			media.init();
+			mark.init();
+
+			setTimeout(function(){
+
+				loading.style.display = 'none';
+			},2000);
+		}
+	</script>
+</html>

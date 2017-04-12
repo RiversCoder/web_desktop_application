@@ -1,0 +1,388 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+html {
+	width: 100%;
+	height: 100%;
+	background-image:url(../images/background/wallpaper.jpg);
+}
+body {
+	width: 100%;
+	height: 100%;
+	font-family: "微软雅黑",'Luxi Sans','DejaVu Sans',Tahoma,'Hiragino Sans GB',STHeiti;
+	overflow:hidden;
+}
+.clearfix:after {
+	display: block;
+	content: '';
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+/* clocks 钟表 */
+
+#clocks{width:200px;height:200px;background:red;position:absolute;right:50px;top:68px;
+background:url(../images/desktop/clock.png) no-repeat;background-size:200px 200px;
+box-shadow:0 0 8px #333;border-radius:50%;}
+
+#clocks .miaoz{width:2px;height:76px;position:absolute;background-color:red;left:99px;top:36px;
+transform-origin:1px 64px;transform:rotate(10deg);z-index:1;}
+
+#clocks .fenz{width:2px;height:66px;position:absolute;background-color:#333;left:99px;top:43px;
+transform-origin:1px 57px;transform:rotate(82deg);z-index:1;}
+
+
+#clocks .shiz{width:4px;height:58px;position:absolute;background-color:#333;left:98px;top:48px;
+transform-origin:2px 52px;transform:rotate(90deg);z-index:1;}
+
+#clocks #elecTime{width:auto;z-index:0;height:36px;position:absolute;left:54px;top:116px;overflow:hidden;}
+#clocks #elecTime .elcItem{transition:top 1s ease;width:30px;height:72px;background:#333;margin-right:3px;float:left;position:relative;left:0;top:0;}
+#clocks #elecTime .elecSec{margin-right:0px;}
+#clocks #elecTime .elcItem span{display:block;position:absolute;width:30px;height:36px;left:0;background:pink;text-align:center;line-height:36px;
+	color:#fff;background:-webkit-radial-gradient(#525252,#333);font-size:13px;}
+#clocks #elecTime .elcItem span:nth-of-type(1){top:0;}
+#clocks #elecTime .elcItem span:nth-of-type(2){top:36px;}
+
+
+
+/* appFolder 操作 */
+#appsFolder{transition:.5s ease;opacity:0;width:600px;height:auto;min-height:460px;z-index:99;border-radius:8px;box-shadow:0 0 12px #333;background:rgba(51,51,51,.2);position:absolute;left:50%;margin-left:-250px;top:-50%;margin-top:-190px;}
+#appsFolder .appFoClose{width:50px;height:50px;position:absolute;right:-36px;top:-36px;color:#fff;line-height:50px;text-align:center;font-size:30px;cursor:pointer;
+transition:.6s;transform-origin:center center;text-shadow:0 0 6px #333;}
+#appsFolder .appFoClose:hover{transform:rotate(180deg);}
+#appsFolder h3{width:100%;height:50px;line-height:50px;background:rgba(0,0,0,0.2);text-align:center;font-weight:500;font-size:20px;color:#fff;text-shadow:0 0 6px #333;}
+#appsFolder .appsFCon{width:100%;height:auto;min-height:310px;position:relative;}
+
+
+/* 文件夹操作 */
+#folderAreaWrap{width:900px;right:-900px;height:560px;position:absolute;top:50%;background:;box-shadow:0 0 10px #333;transition:.3s ease;z-index:999;}
+#folderAreaWrap.folderToggle{left:50%;margin-left:-450px;top:50%;margin-top:-280px;width:900px;height:560px;}
+#folderAreaWrap .folderOpenBtn{width:30px;height:130px;background:pink;position:absolute;left:-30px;top:50%;margin-top:-65px;cursor:pointer;background:#000;color:#fff;line-height:130px;text-align:center;}
+#folderArea{width:900px;height:560px;position:relative;}
+#folderArea .folderContent{width:100%;height:530px;background:rgba(51,51,51,0.6);}
+#folderArea .folderMenu{width:100%;height:30px;background:rgba(0,0,0,0.3);}
+#folderArea .folderMenu a{width:100px;padding:0 6px;height:30px;font-size:13px;display:block;color:#fff;line-height:30px;text-align:center;border-right:1px solid rgba(0,0,0,0.4);background:rgba(0,0,0,0.3);float:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#folderArea .folderMenu a:last-child{background:rgba(0,0,0,0.6);border-right:none;}
+#folderArea .folderMenu a:active{background:rgba(0,0,0,0.6);}
+#folderArea .folderMenu .fmFocusMenuA{background:rgba(0,0,0,0.6);border-right:none;}
+
+#folderArea .folderContent .fcItem{width:148px;height:160px;float:left;cursor:pointer;transition:.3s;margin-left:26px;margin-top:20px;color:#f1f1f1;}
+#folderArea .folderContent .fcItem:hover{background:rgba(255,255,255,0.3);color:#fff;}
+#folderArea .folderContent .fcItem .fciCon{width:100%height:100%;position:relative;}
+#folderArea .folderContent .fcItem .fciCon dt img{width:76%;margin-left:12%;}
+#folderArea .folderContent .fcItem .fciCon dd p{width:100%;text-align:center;text-shadow:1px 0px 3px #333;font-size:14px;}
+#folderArea .folderContent .fcItem .fciCon dd p:nth-of-type(2){display:none;}
+
+
+/* 预览图片 */
+#previewPic{width:100%;height:100%;position:fixed;z-index:999;background:rgba(0,0,0,0.8);display:none;}
+#previewPic .pclose{position:absolute;right:30px;top:30px;transform-origin:25px 25px;transition:.6s;cursor:pointer;color:#fff;font-size:30px;width:50px;height:50px;line-height:50px;text-align:center;}
+#previewPic .pclose:hover{transform:rotate(180deg);}
+#previewPic .pimg{width:auto;border:3px solid #fff;position:absolute;left:calc(50% - 350px);top:10%;cursor:move;}
+
+
+
+/*弹出的iframe*/
+.market_alert{background:rgba(255,255,255,0.6);transition:.5s;overflow:hidden;width:898px;height:498px;border:1px solid #1f5bb7;position:absolute; left: calc(50% - 450px); top: calc(50% - 250px);z-index:888;display: none;}
+.market_alert_con{width:100%;height:100%;position:relative;}
+.market_con_tit{width:100%;height:28px;background:#1f5bb7;min-width:300px;}
+.market_tit_logo{width:150px;height:28px;float:left;}
+.market_tit_logo a{display: block;width:150px;height:28px;font:14px/28px "微软雅黑";color:#fff;text-indent:20px;background-size: 18px 18px;}
+.c_small,.c_big,.c_close{display: block;width:48px;height:28px;float:right;}
+.c_close{background:url(../images/close.png) no-repeat 10px 5px;}
+.c_big{background:url(../images/open.png) no-repeat 10px 5px;}
+.c_small{background:url(../images/suoxiao.png) no-repeat 10px 5px;}
+.market_alert iframe{ width: 100%; height: 100%;  position: absolute; left: 0; top:28px; border:none;}
+
+
+/*--点击桌面右键菜单--*/
+
+.right_onclick{display:block;position:absolute;z-index:999;padding:5px 0;background:#fff;border:1px solid #ccc;top:0px;left:0px;width:160px;}
+.right_onclick ul{display:none;}
+.right_onclick li{height:26px;position: relative;}
+.right_onclick .divider{height:1px;background:#ccc;margin:4px 0;}
+.right_onclick li:hover{background:#366d19;}
+.right_onclick li a:hover{color:#fff;}
+
+.right_onclick li span{display:block;width:13px;height:15px;position:absolute;top:5px;right:5px;background: url(../images/desktop/black_zhankai.png) no-repeat;}
+.right_onclick li a{display: block;font:14px/26px "微软雅黑";color:#000;padding-left:40px;}
+.right_onclick li:nth-of-type(1) .menuitem{background: url(../images/desktop/block.png) no-repeat 20px 6px;}
+.right_onclick li:nth-of-type(2) .menuitem{background: url(../images/desktop/black_xitong.png) no-repeat 20px 6px;}
+.right_onclick li:nth-of-type(3) .menuitem{background: url(../images/desktop/black_all.png) no-repeat 20px 6px;}
+.right_onclick li:nth-of-type(5) .menuitem{background: url(../images/desktop/black_guanli.png) no-repeat 20px 6px;}
+.right_onclick li:nth-of-type(6) .menuitem{background: url(../images/desktop/black_shichang.png) no-repeat 20px 6px;}
+.right_onclick li:nth-of-type(8) .menuitem{background: url(../images/desktop/black_shezhi.png) no-repeat 20px 6px;}
+.right_onclick li:nth-of-type(9) .menuitem{background: url(../images/desktop/black_user.png) no-repeat 20px 6px;}
+.right_onclick li:nth-of-type(11) .menuitem{background: url(../images/desktop/black_about.png) no-repeat 20px 6px;}
+.right_onclick  .rgt_click_item_ul{background:#fff;width:120px;position:absolute;left:160px;top:0;text-align:center;text-indent:0;}
+.right_onclick  .rgt_click_item_ul a{width:120px;text-align:center;padding-left:0;}
+
+.outWrap {
+	width: 100%;
+	height: 100%;
+	background-image:url(../images/background/wallpaper.jpg);
+	background-size: cover;
+	position:relative;
+	overflow:hidden;
+}
+.icoGetBig{position:absolute;right:10px;top:10px;z-index:20;}
+
+.setColor .hte-shortcut:hover{background:rgba(255,255,255,0.3);}
+
+.hte-quickbar-show {
+	width: 36px;
+	height: 90px;
+	position: fixed;
+	top: 42%;
+	left: 0;
+	background-color: #9b1dab;
+	cursor: pointer;
+	z-index:9;
+	transition: all .3s;
+	display:none;
+}
+.hte-quickbar-show img{
+	position: absolute;
+	top: 32px;
+	left: 5px;
+	transition: 0.5s;
+}
+.hte-quickbar-show:hover{
+	background-color: rgba(155,29,171,0.8);
+}
+.hte-quickbar-show:hover img{
+	transform: rotate(-360deg);
+}
+
+.hte-quickbar{
+	width: 80px;
+	height: 100%;
+	background-color: #9b1dab;
+	z-index: 99;
+	position: fixed;
+	left: -80px;
+	top: 0;
+	transition: all .3s;
+}
+.hte-quickbar-header{
+	height: 56px;
+	border-bottom:1px #ccc solid ;
+	position: relative;
+}
+.hte-quickbar-header img{
+	position: absolute;
+	left: 27px;
+	top: 15px;
+	transition: 0.5s;
+	cursor: pointer;
+}
+.hte-quickbar-header img:hover{
+	transform: rotate(-180deg);
+}
+
+.hte-quickbar-body{
+	width: 60px;
+	height: 180px;
+	margin: 10px auto 0;
+}
+.hte-quickbar1{
+	display: block;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	position: relative;
+    -webkit-user-select: none;
+}
+.hte-quickbar1 img{
+	width: 36px;
+	height: 36px;
+	position: absolute;
+	left: 12px;
+	top: 12px;
+
+}
+.hte-quickbar1:hover{background-color: rgba(0,0,0,0.3);
+}
+.hte-taskbar{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 35px;
+	z-index:10000;
+	transition: all .25s;
+	background-color: rgba(155,29,171,1);
+	overflow: hidden;
+}
+.hte-taskbar-action-left{
+	width:120px;
+	height: 100%;
+	float: left;
+}
+
+.hte-taskbar-action{
+	float: left;
+	width: 36px;
+	height: 100%;
+	cursor: pointer;
+	background-repeat:no-repeat ;
+	background-position: 10px 10px;
+}
+.hte-taskbar-action:hover{background-color: rgba(255,255,255,0.1);
+	
+}
+.hte-taskbar-inner{
+	float: left;
+	width: auto;
+	height: 100%;
+	position: absolute;
+	left:120px ;
+	right: 278px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.hte-task-bottom{
+	width: 160px;
+	border-bottom: 2.5px solid rgba(255,255,255,0.6);
+	height: 35px;
+	color: white;
+	overflow: hidden;
+	position: relative;
+	display: block;
+	float:left;
+	box-sizing: border-box;
+}
+.hte-task-bottom:hover{
+	background-color:rgba(31,91,183,0.5) ;
+	cursor: pointer;
+}
+.hte-task-icon{
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	width: 20px;
+	height: 20px;
+}
+.hte-task-name{
+	font-size:12px;
+	width: 100%;
+	height: 100%;
+	line-height:37px;
+	padding-left: 35px;
+}
+.hte-task-active{
+	background-color: rgba(31,91,183,0.8);
+}
+.hte-taskbar-action-right{
+	float: right;
+	height: 100%;
+}
+.hte-taskbar-action-time{
+	width: 57px;
+	text-align: center;
+	line-height: 35px;
+	color: #fff;
+	font-size:13px;
+}
+.hte-task-contextmenu{
+	background-color:white;
+	padding:5px 0;
+	z-index: 999;
+	width: 158px;
+	position: absolute;
+	border: 1px solid rgba(0,0,0,.15);
+	display: block;
+}
+.hte-task-contextmenu > li{
+	font-size: 13px;
+	position: relative;
+	
+}
+.hte-task-contextmenu > li a:hover{
+	background-color: #1f5bb7;
+	color: white;
+}
+.hte-task-contextmenu > li>a{
+	padding: 4px 30px 4px 20px;
+	color: black;
+	font-size: 13px;
+	display: block;
+	white-space: nowrap;
+	
+}
+.hte-task-contextmenu > li>a span{
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+} 
+.hte-task-contextmenu .divider{
+	margin: 4px 0px;
+	height: 1px;
+	background-color: #e5e5e5;
+	overflow: hidden;
+}
+.outBox-icon{
+	overflow-y:hidden;
+	position: relative;
+	width: 100%;
+	height: 94%;
+}
+.auto{
+	
+}
+.hte-shortcut{
+	position: absolute;
+	width: 72px;
+	height: 72px;
+	color: white;
+	cursor:pointer;
+	transition:.2s;
+	transition-property:transform,left,top;
+	z-index:2;	
+}
+#iconPage .hte-shortcut-bg{background-color:rgba(255,255,255,0.6);}
+.outBox-middle-icon .hte-shortcut{width:100px;height:100px;}
+.outBox-middle-icon .hte-shortcut img{width:50px;height:50px;left:25px;top:20px;}
+
+.hte-shortcut-copy{
+	position: absolute;
+	width: 72px;
+	height: 72px;
+	color: white;
+	cursor: pointer;
+}
+.hte-shortcut img, .hte-shortcut-copy img{
+	width:36px;
+	height: 36px;
+	position: absolute;
+	top:12px;
+	left: 18px;
+}
+.hte-shortcut p.hte-shortcut-name, .hte-shortcut-copy p.hte-shortcut-name {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: center;
+	text-overflow:ellipsis;
+	width: 100%;
+}
+ /*响应式设置*/
+
+ @media all and(max-width:600px){
+
+ 	.outWrap{
+ 		display: none;
+ 	}
+ }
